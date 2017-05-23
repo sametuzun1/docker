@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  web:
+    image: sametuzun/web
+    build: web
+    ports:
+      - '80:80'
+    links:
+      - db:db
+  db:
+    image: sametuzun/db
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - '3306:3306'
